@@ -2,16 +2,24 @@
 
 
 [[projects]]
+  name = "github.com/BurntSushi/toml"
+  packages = ["."]
+  revision = "b26d9c308763d68093482582cea63d69be07a0f0"
+  version = "v0.3.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/NetAuth/NetAuth"
   packages = [
+    "internal/crypto",
+    "internal/db",
     "internal/token",
     "internal/token/impl",
     "internal/token/impl/jwt",
-    "pkg/client",
-    "pkg/errors"
+    "internal/tree",
+    "pkg/client"
   ]
-  revision = "ad49f907b306bee04d973c4fd03500733c327ab8"
+  revision = "f8e82acd4f5304b0e8bf7c0d3f99a248641b75be"
 
 [[projects]]
   branch = "master"
@@ -35,7 +43,7 @@
     "ptypes/duration",
     "ptypes/timestamp"
   ]
-  revision = "05f48f4eaf0e05663b562bab533cdd472238ce29"
+  revision = "5831880292e721c76b58a16ecc60adc27d8e6355"
 
 [[projects]]
   branch = "master"
@@ -49,7 +57,7 @@
     "internal/timeseries",
     "trace"
   ]
-  revision = "1e491301e022f8f977054da4c2d852decd59571f"
+  revision = "db08ff08e8622530d9ed3a0e8ac279f6d4c02196"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -76,7 +84,7 @@
   branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "81158efcc9f219c511e4d3c0d61a0e6e49c01a24"
+  revision = "32ee49c4dd805befd833990acba36cb75042378c"
 
 [[projects]]
   name = "google.golang.org/grpc"
@@ -106,8 +114,8 @@
     "tap",
     "transport"
   ]
-  revision = "22a49e732a507a11ac524e4ea5fd1a3e384b6fb8"
-  version = "v1.12.1"
+  revision = "7a6a684ca69eb4cae85ad0a484f2e531598c047b"
+  version = "v1.12.2"
 
 [solve-meta]
   analyzer-name = "dep"

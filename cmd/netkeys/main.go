@@ -12,28 +12,48 @@ import (
 )
 
 var (
-	server   = flag.String("server", "localhost", "NetAuth server")
-	port     = flag.Int("port", 8080, "NetAuth server port")
-	clientID = flag.String("client", "netkeys", "Client ID")
-	keyType  = flag.String("type", "SSH", "Type of keys to print")
-	entityID = flag.String("ID", "", "ID to look up")
+	cfg       *client.NACLConfig
+	keyType   = flag.String("type", "SSH", "Type of keys to print")
+	entityID  = flag.String("ID", "", "ID to look up")
+	serviceID = flag.String("service", "netkeys", "Service ID to send")
 )
+
+// loadConfig loads the config in.  It would have been nice to do this
+// in init(), but that gets called too late
+func loadConfig() {
+	if cfg != nil {
+		return
+	}
+	config := os.Getenv("NACLCONFIG")
+	if config == "" {
+		config = "/etc/netauth.toml"
+	}
+
+	var err error
+	cfg, err = client.LoadConfig(config)
+	if err != nil && !os.IsNotExist(err) {
+		fmt.Println("Config loading error: ", err)
+		return
+	}
+}
 
 func main() {
 	flag.Parse()
+
+	// Handle config loading
+	loadConfig()
+	if cfg == nil {
+		os.Exit(1)
+	}
+	cfg.ServiceID = *serviceID
 
 	// Shut off all the logging
 	log.SetFlags(0)
 	log.SetOutput(ioutil.Discard)
 
-	hostname, err := os.Hostname()
-	if err != nil {
-		hostname = "hostname-error"
-	}
-
 	// Grab the client, we're ignoring the error here since crypto
 	// will certainly fail to initialize
-	c, err := client.New(*server, *port, *clientID, hostname)
+	c, err := client.New(cfg)
 
 	// This is only ever done for read, never write, so we feed a
 	// null token
