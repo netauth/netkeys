@@ -19,7 +19,7 @@
     "internal/tree",
     "pkg/client"
   ]
-  revision = "f7d86493cee45b391b8e048eb692e2c73698b2e8"
+  revision = "e7e3ca47189a519cbb9487e8853942d302840293"
 
 [[projects]]
   branch = "master"

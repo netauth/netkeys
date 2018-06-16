@@ -18,37 +18,21 @@ var (
 	serviceID = flag.String("service", "netkeys", "Service ID to send")
 )
 
-// loadConfig loads the config in.  It would have been nice to do this
-// in init(), but that gets called too late
-func loadConfig() {
-	if cfg != nil {
-		return
-	}
-	var err error
-	cfg, err = client.LoadConfig("")
-	if err != nil && !os.IsNotExist(err) {
-		fmt.Println("Config loading error: ", err)
-		return
-	}
-}
-
 func main() {
 	flag.Parse()
-
-	// Handle config loading
-	loadConfig()
-	if cfg == nil {
-		os.Exit(1)
-	}
-	cfg.ServiceID = *serviceID
 
 	// Shut off all the logging
 	log.SetFlags(0)
 	log.SetOutput(ioutil.Discard)
 
-	// Grab the client, we're ignoring the error here since crypto
-	// will certainly fail to initialize
-	c, err := client.New(cfg)
+	// Grab a client
+	c, err := client.New(nil)
+	if err != nil {
+		os.Exit(1)
+	}
+
+	// Set the service ID
+	c.SetServiceID(*serviceID)
 
 	// This is only ever done for read, never write, so we feed a
 	// null token
