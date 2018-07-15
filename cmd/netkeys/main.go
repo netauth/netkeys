@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"strings"
 
 	"github.com/NetAuth/NetAuth/pkg/client"
 )
@@ -44,8 +43,7 @@ func main() {
 
 	// Print out the keys, no formatting, just the key data
 	for _, k := range keys {
-		parts := strings.Split(k, ":")
-		fmt.Println(strings.Join(parts[1:], " "))
+		fmt.Println(k)
 	}
 	os.Exit(0)
 }
