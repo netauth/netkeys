@@ -1,37 +1,57 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 
+	"github.com/spf13/viper"
+	"github.com/spf13/pflag"
+
 	"github.com/NetAuth/NetAuth/pkg/client"
 )
 
 var (
-	cfg       *client.NACLConfig
-	keyType   = flag.String("type", "SSH", "Type of keys to print")
-	entityID  = flag.String("ID", "", "ID to look up")
-	serviceID = flag.String("service", "netkeys", "Service ID to send")
+	keyType   = pflag.String("type", "SSH", "Type of keys to print")
+	entityID  = pflag.String("ID", "", "ID to look up")
+	serviceID = pflag.String("service", "netkeys", "Service ID to send")
+	cfgfile = pflag.String("config", "", "Config file to use")
+	verbose = pflag.Bool("verbose", false, "Show logs")
 )
 
 func main() {
-	flag.Parse()
+	pflag.Parse()
+	viper.BindPFlags(pflag.CommandLine)
+	if *cfgfile != "" {
+		viper.SetConfigFile(*cfgfile)
+	} else {
+		viper.SetConfigName("config")
+		viper.AddConfigPath("/etc/netauth/")
+		viper.AddConfigPath("$HOME/.netauth")
+		viper.AddConfigPath(".")
+	}
+	if err := viper.ReadInConfig(); err != nil {
+		fmt.Println("Error reading config:", err)
+		os.Exit(1)
+	}
+	viper.Set("client.ServiceName", "netauth")
 
 	// Shut off all the logging
-	log.SetFlags(0)
-	log.SetOutput(ioutil.Discard)
+	if !*verbose {
+		log.SetFlags(0)
+		log.SetOutput(ioutil.Discard)
+	}
 
 	// Grab a client
-	c, err := client.New(nil)
+	c, err := client.New()
 	if err != nil {
+		fmt.Println("Client initialization error:", err)
 		os.Exit(1)
 	}
 
 	// Set the service ID
-	c.SetServiceID(*serviceID)
+	viper.Set("client.ServiceName", *serviceID)
 
 	// This is only ever done for read, never write, so we feed a
 	// null token
