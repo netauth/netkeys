@@ -53,6 +53,17 @@ func main() {
 	// Set the service ID
 	viper.Set("client.ServiceName", *serviceID)
 
+	e, err := c.EntityInfo(*entityID)
+	if err != nil {
+		log.Println("Error loading entity:", err)
+		os.Exit(1)
+	}
+	if e.Meta != nil && e.GetMeta().GetLocked() {
+		// If locked metadata is present, then don't return
+		// anything.
+		os.Exit(0)
+	}
+
 	// This is only ever done for read, never write, so we feed a
 	// null token
 	keys, err := c.ModifyEntityKeys("", *entityID, "LIST", *keyType, "")
