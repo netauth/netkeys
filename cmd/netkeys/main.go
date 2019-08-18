@@ -27,9 +27,9 @@ func main() {
 		viper.SetConfigFile(*cfgfile)
 	} else {
 		viper.SetConfigName("config")
-		viper.AddConfigPath("/etc/netauth/")
-		viper.AddConfigPath("$HOME/.netauth")
 		viper.AddConfigPath(".")
+		viper.AddConfigPath("$HOME/.netauth")
+		viper.AddConfigPath("/etc/netauth/")
 	}
 	if err := viper.ReadInConfig(); err != nil {
 		fmt.Println("Error reading config:", err)
