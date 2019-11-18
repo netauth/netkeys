@@ -45,7 +45,6 @@ func main() {
 		log.SetOutput(ioutil.Discard)
 	}
 
-	viper.Set("token.cache", "memory")
 	c, err := netauth.New()
 	if err != nil {
 		log.Println("Error during client initialization:", err)

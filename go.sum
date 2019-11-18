@@ -64,6 +64,8 @@ github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh
 github.com/mschoch/smat v0.0.0-20160514031455-90eadee771ae/go.mod h1:qAyveg+e4CE+eKJXWVjKXM4ck2QobLqTDytGJbLLhJg=
 github.com/netauth/netauth v0.3.0-rc1 h1:S58w4XdjPz20t7t4Y3lTjvLkUrIa09Ijmwgl/uh3T3I=
 github.com/netauth/netauth v0.3.0-rc1/go.mod h1:/gaGDiiS4BGcnMLh8mL2p60S9Jhmvn38DPbhtPcmVXI=
+github.com/netauth/netauth v0.3.0-rc1.0.20191116062114-225054102f87 h1:b7nUXz2sUi3M7XICtmSUTnIzKLbTE/0mbaDIL6hn/hc=
+github.com/netauth/netauth v0.3.0-rc1.0.20191116062114-225054102f87/go.mod h1:/gaGDiiS4BGcnMLh8mL2p60S9Jhmvn38DPbhtPcmVXI=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
