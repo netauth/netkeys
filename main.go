@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
 	"os"
 	"strings"
 	"context"
 
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	"github.com/hashicorp/go-hclog"
 
 	"github.com/netauth/netauth/pkg/netauth"
 	_ "github.com/netauth/netauth/pkg/netauth/memory"
@@ -41,13 +40,13 @@ func main() {
 
 	// Shut off all the logging
 	if !*verbose {
-		log.SetFlags(0)
-		log.SetOutput(ioutil.Discard)
+		hclog.SetDefault(hclog.NewNullLogger())
 	}
+	l := hclog.L().Named("netkeys")
 
 	c, err := netauth.New()
 	if err != nil {
-		log.Println("Error during client initialization:", err)
+		l.Warn("Error during client initialization:", "error", err)
 		os.Exit(1)
 	}
 
@@ -56,7 +55,7 @@ func main() {
 
 	e, err := c.EntityInfo(context.Background(), *entityID)
 	if err != nil {
-		log.Println("Error loading entity:", err)
+		l.Error("Error loading entity:", "error", err)
 		os.Exit(1)
 	}
 	if e.GetMeta().GetLocked() {
