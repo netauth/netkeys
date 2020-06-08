@@ -60,8 +60,8 @@ github.com/mitchellh/go-testing-interface v0.0.0-20171004221916-a61a99592b77/go.
 github.com/mitchellh/mapstructure v1.1.2 h1:fmNYVwqnSfB9mZU6OS2O6GsXM+wcskZDuKQzvN1EDeE=
 github.com/mitchellh/mapstructure v1.1.2/go.mod h1:FVVH3fgwuzCH5S8UJGiWEs2h04kUh9fWfEaFds41c1Y=
 github.com/mschoch/smat v0.0.0-20160514031455-90eadee771ae/go.mod h1:qAyveg+e4CE+eKJXWVjKXM4ck2QobLqTDytGJbLLhJg=
-github.com/netauth/netauth v0.3.2 h1:q1zYt0++0zrELq3st2QU/+v0iApPKBmn8lvAEMk4R9c=
-github.com/netauth/netauth v0.3.2/go.mod h1:J72ArpIVnQDgBUv/e6iCjg9U6yOrpLOF4o4UKQd51pQ=
+github.com/netauth/netauth v0.3.3 h1:a8KexE3MNvSt/ADAjZyuTqFNh7tfsmn8rgqgtbUQDVQ=
+github.com/netauth/netauth v0.3.3/go.mod h1:J72ArpIVnQDgBUv/e6iCjg9U6yOrpLOF4o4UKQd51pQ=
 github.com/netauth/protocol v0.0.0-20191124005711-167b58b61c72 h1:TRWDX4YIgajtmV3DHPrj7J/mNcg1C0YiRNppdQACstg=
 github.com/netauth/protocol v0.0.0-20191124005711-167b58b61c72/go.mod h1:xaNx5CDzZAIQf/05XC49krheuDM51d0ghkBw8liKAag=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=

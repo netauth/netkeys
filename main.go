@@ -11,7 +11,6 @@ import (
 	"github.com/hashicorp/go-hclog"
 
 	"github.com/netauth/netauth/pkg/netauth"
-	_ "github.com/netauth/netauth/pkg/netauth/memory"
 )
 
 var (
