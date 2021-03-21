@@ -208,8 +208,8 @@ github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd/go.mod h1:6dJ
 github.com/modern-go/reflect2 v1.0.1/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
 github.com/mschoch/smat v0.0.0-20160514031455-90eadee771ae/go.mod h1:qAyveg+e4CE+eKJXWVjKXM4ck2QobLqTDytGJbLLhJg=
 github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRWi+5nqEBWmkhHvq77mSJWrCKwh8bxhgT7d/eI7P4U=
-github.com/netauth/netauth v0.4.0 h1:ddBlPpPgOiUvNu+d8kvkXFO1MBn9Etg+/ryyPq3gvME=
-github.com/netauth/netauth v0.4.0/go.mod h1:wW+2E2uhip9Kc9xmPuXLy1nOZG/L45042+bnvg2qWY4=
+github.com/netauth/netauth v0.4.1 h1:upRDVqDFTFuwKIxiiZBef6BIfeijwTD1hcxnQeqfBzM=
+github.com/netauth/netauth v0.4.1/go.mod h1:wW+2E2uhip9Kc9xmPuXLy1nOZG/L45042+bnvg2qWY4=
 github.com/netauth/protocol v0.0.0-20210308093302-0e6e0dd6dfb2 h1:WPHLyfaewvSZB8/AknBt7uR/pTLaMQ5MA0CYR3oDfvc=
 github.com/netauth/protocol v0.0.0-20210308093302-0e6e0dd6dfb2/go.mod h1:wpK5wqysOJU1w2OxgG65du8M7UqBkxzsNaJdjwiRqAs=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=

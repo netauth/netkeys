@@ -9,7 +9,7 @@ require (
 	github.com/hashicorp/go-hclog v0.15.0
 	github.com/magiconair/properties v1.8.4 // indirect
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
-	github.com/netauth/netauth v0.4.0
+	github.com/netauth/netauth v0.4.1
 	github.com/pelletier/go-toml v1.8.1 // indirect
 	github.com/spf13/afero v1.5.1 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
